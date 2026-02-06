@@ -8,7 +8,7 @@ import pic5 from "../assets/img5.JFIF";
 // import img5 from "../assets/img5.jpg";
 
 export default function RotatingValentine() {
-  const images = [pic1, pic2, pic3, pic4,pic5];
+  const images = [pic1, pic2, pic3, pic4, pic5];
 
   return (
     <div className="min-h-screen bg-pink-400 flex items-center justify-center overflow-hidden">
@@ -48,34 +48,40 @@ export default function RotatingValentine() {
       {/* CSS */}
       <style>{`
         .perspective {
-          perspective: 1400px;
-        }
+  perspective: 1400px;
+}
 
-        .carousel {
-          position: absolute;
-          inset: 0;
-          transform-style: preserve-3d;
-          animation: spin 16s linear infinite;
-        }
+.carousel {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+  animation: spin 16s linear infinite;
+}
 
-        .carousel-item {
-          position: absolute;
-          top: 45%;
-          left: 50%;
-          width: 200px;
-          height: 200x;
-          border-radius: 20px;
-          object-fit: cover;
-          transform-style: preserve-3d;
-          box-shadow: 0 20px 40px rgba(0,0,0,0.35);
-          backface-visibility: hidden;
-        }
+.carousel-item {
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+  object-fit: cover;
+  transform-style: preserve-3d;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+  backface-visibility: hidden;
+}
 
-        @keyframes spin {
-          from { transform: rotateY(0deg); }
-          to { transform: rotateY(360deg); }
-        }
-      `}</style>
+/* MOBILE ONLY */
+@media (max-width: 768px) {
+  .carousel {
+    transform: translateY(-60px);
+  }
+}
+
+@keyframes spin {
+  from { transform: rotateY(0deg); }
+  to { transform: rotateY(360deg); }
+      }`}</style>
     </div>
   );
 }
