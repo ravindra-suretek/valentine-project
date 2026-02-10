@@ -1,87 +1,85 @@
-import pic1 from "../assets/img1.JFIF";
-import pic2 from "../assets/img2.JFIF";
-import pic3 from "../assets/img3.JFIF";
-import pic4 from "../assets/img4.JFIF";
-import pic5 from "../assets/img5.JFIF";
-// import pic6 from "../assets/img6.JFIF";
-// import pic7 from "../assets/img7.JFIF";
-// import img5 from "../assets/img5.jpg";
+import pic1 from "../assets/img1.jpg";
+import pic2 from "../assets/img2.jpg";
+import pic3 from "../assets/img3.jpg";
+import pic4 from "../assets/img4.jpg";
+import pic5 from "../assets/img5.jpg";
+import pic6 from "../assets/img6.jpg";
 
 export default function RotatingValentine() {
-  const images = [pic1, pic2, pic3, pic4, pic5];
+  const images = [pic1, pic2, pic3, pic4, pic5, pic6];
 
   return (
-    <div className="min-h-screen bg-pink-400 flex items-center justify-center overflow-hidden">
-      <div className="relative w-100 h-110 perspective">
+    <div className="relative w-[360px] h-[460px] flex items-center justify-center perspective">
 
-        {/* ROTATING CAROUSEL — ABOVE CARD */}
-        <div className="carousel z-30">
-          {images.map((img, i) => (
-            <img
-              key={i}
-              src={img}
-              className="carousel-item"
-              style={{
-                transform: `rotateY(${i * (360 / images.length)}deg) translateZ(210px)`
-              }}
-            />
-          ))}
+      {/* 💌 CARD — BACK */}
+      <div className="absolute inset-0 flex items-center justify-center z-10">
+        <div className="bg-white w-full h-full rounded-3xl shadow-2xl flex flex-col items-center justify-center text-center px-6 ">
+          <h1 className="text-3xl font-bold text-pink-500">
+            Happy Valentine’s Day 💖
+          </h1>
+
+          <p className="mt-4 text-gray-600">
+            You’re my today, tomorrow, and always ❤️
+          </p>
+
+          <p className="mt-auto mb-6 text-pink-500 font-semibold">
+            ❤️ I Love You ❤️
+          </p>
         </div>
-
-        {/* CENTER CARD — SLIGHTLY BACK */}
-        <div className="absolute inset-0 flex items-center justify-center z-10">
-          <div className="bg-white w-100 h-110 rounded-3xl shadow-2xl flex flex-col justify-center text-center px-4">
-            <h1 className="text-3xl font-bold text-pink-500 mt-4">
-              Happy Valentine’s Day 💖 <br />💐
-            </h1>
-            <p className="mt-3 text-gray-600 ">
-              You’re my today, tomorrow, and always ❤️
-            </p>
-            <p className="mt-auto mb-4 text-pink-500 font-semibold">
-              ❤️ I Love You ❤️
-            </p>
-          </div>
-        </div>
-
       </div>
 
-      {/* CSS */}
+      {/* 🔄 CAROUSEL — FRONT */}
+      <div className="carousel z-30">
+        {images.map((img, i) => (
+          <img
+            key={i}
+            src={img}
+            className="carousel-item"
+            style={{
+              transform: `rotateY(${i * (360 / images.length)}deg) translateZ(240px)`
+            }}
+          />
+        ))}
+      </div>
+
       <style>{`
         .perspective {
-  perspective: 1400px;
-}
+          perspective: 1600px;
+        }
 
-.carousel {
-  position: absolute;
-  inset: 0;
-  transform-style: preserve-3d;
-  animation: spin 16s linear infinite;
-}
+        .carousel {
+          position: absolute;
+          width: 100%;
+          height: 100%;
+          transform-style: preserve-3d;
+          animation: spin 14s linear infinite;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
 
-.carousel-item {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  width: 200px;
-  height: 200px;
-  border-radius: 20px;
-  object-fit: cover;
-  transform-style: preserve-3d;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
-  backface-visibility: hidden;
-}
+        .carousel-item {
+          position: absolute;
+          width: 190px;
+          height: 190px;
+          border-radius: 20px;
+          object-fit: cover;
+          box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+          backface-visibility: visible;
+        }
 
-/* MOBILE ONLY */
-@media (max-width: 768px) {
-  .carousel {
-    transform: translateY(-60px);
-  }
-}
+        @keyframes spin {
+          from { transform: rotateY(0deg); }
+          to { transform: rotateY(360deg); }
+        }
 
-@keyframes spin {
-  from { transform: rotateY(0deg); }
-  to { transform: rotateY(360deg); }
-      }`}</style>
+        @media (max-width: 768px) {
+          .carousel-item {
+            width: 150px;
+            height: 150px;
+          }
+        }
+      `}</style>
     </div>
   );
 }

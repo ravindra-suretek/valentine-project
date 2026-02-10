@@ -2,6 +2,7 @@
 import bearGif from "../assets/bear.gif"
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import  BackgroundMusic  from "../Components/BackgroundMusic";
 const Home = () => {
     const navigate = useNavigate()
     const noBtnRef = useRef(null);
@@ -26,8 +27,8 @@ const Home = () => {
     return (
         <div>
             {/* <FloatingHearts /> */}
-            <div className="min-h-screen flex items-center justify-center bg-pink-400 px-4">
-                <div className="bg-white rounded-3xl shadow-xl max-w-sm w-full text-center p-6 relative">
+            <div className="min-h-screen flex items-center justify-center  px-4">
+                <div className="bg-white rounded-3xl shadow-xl min-w-80 w-full text-center p-6 relative">
 
                     {/* GIF */}
                     <img
@@ -37,19 +38,19 @@ const Home = () => {
                     />
 
                     {/* Text */}
-                    <h1 className="text-2xl font-bold text-pink-500">
+                    <h1 className="text-2xl font-bold text-[#ff4d6d]">
                         Will you be my <br /> Valentine? 💌
                     </h1>
 
                     <p className="text-gray-500 mt-2">
-                        Think carefully 🥺
+                        Think carefully 😌
                     </p>
 
                     {/* Buttons */}
                     <div className="flex justify-center gap-4 mt-6">
                         <button
-                            className="bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-full font-semibold transition"
-                            onClick={() => navigate("/love")}
+                            className="bg-[#ff4d6d] hover:bg-pink-600 text-white px-6 py-2 rounded-full font-semibold transition"
+                            onClick={() => {BackgroundMusic(); navigate("/love")}}
                         >
                             Yes 💖
                         </button>
@@ -58,8 +59,8 @@ const Home = () => {
                             ref={noBtnRef}
                             onMouseEnter={moveNoButton}
                             onTouchStart={moveNoButton}
-                            onClick={moveNoButton}
-                            className="bg-pink-500 text-white px-6 py-2 rounded-full font-semibold transition"
+                            onClick={()=>{BackgroundMusic();moveNoButton}}
+                            className="bg-[#ff4d6d] text-white px-6 py-2 rounded-full font-semibold transition"
                         >
                             No 😜
                         </button>

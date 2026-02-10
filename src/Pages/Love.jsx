@@ -5,7 +5,7 @@ const Love = ()=> {
   return (
     <div>
                 {/* <FloatingHearts /> */}
-                <div className="min-h-screen flex items-center justify-center bg-pink-400 px-4">
+                <div className="min-h-screen flex items-center justify-center px-4">
                     <div className="bg-white rounded-3xl shadow-xl max-w-100 w-full text-center p-6 relative">
     
                         {/* GIF */}
@@ -30,7 +30,7 @@ const Love = ()=> {
                         {/* Buttons */}
                         <div className="flex justify-center gap-4 mt-6">
                             <button
-                                className="animate-bounce bg-pink-500 hover:bg-pink-600 text-white px-6 py-2 rounded-full font-semibold transition"
+                                className="animate-bounce bg-[#ff4d6d] hover:bg-pink-600 text-white px-6 py-2 rounded-full font-semibold transition"
                                 onClick={() => navigate("/reasonsLove")}
                             >
                                 Next 💕

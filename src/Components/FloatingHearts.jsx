@@ -12,8 +12,8 @@ export default function FloatingHearts() {
         {
           id,
           left: Math.random() * 100,
-          size: 14 + Math.random() * 26,
-          duration: 4 + Math.random() * 4,
+          size: 14 + Math.random() * 36,
+          duration: 8 + Math.random() * 4,
         },
       ]);
 
@@ -28,7 +28,7 @@ export default function FloatingHearts() {
   return (
     <>
       {/* Hearts Layer */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none z-0 bg-pink-400">
+      <div className="fixed inset-0 overflow-hidden pointer-events-none z-20">
         {hearts.map((heart) => (
           <span
             key={heart.id}
@@ -44,7 +44,6 @@ export default function FloatingHearts() {
         ))}
       </div>
 
-      {/* Component-level CSS (NO tailwind.config.js needed) */}
       <style>{`
         .heart {
           position: absolute;
